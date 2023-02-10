@@ -1,6 +1,16 @@
 import React from "react";
 
 const TodoList = ({ todos, setTodos }) => {
+  const handleComplete = (todo) => {
+    setTodos(
+      todos.map((item) => {
+        if (item.id === todo.id) {
+          return { ...item, completed: !item.completed };
+        }
+        return item;
+      })
+    );
+  };
   const handleDelete = ({ id }) => {
     setTodos(todos.filter((todo) => todo.id !== id));
   };
@@ -15,7 +25,10 @@ const TodoList = ({ todos, setTodos }) => {
           />
           <div>
             <button>
-              <i className="fa fa-check-circle"></i>
+              <i
+                className="fa fa-check-circle"
+                onClick={() => handleComplete(todo)}
+              ></i>
             </button>
             <button>
               <i className="fa fa-edit"></i>
