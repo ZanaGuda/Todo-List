@@ -9,7 +9,7 @@ function App() {
   const [editTodo, setEditTodo] = useState(null);
   return (
     <div className="container">
-      <div>
+      <div className="app-wrapper">
         <div>
           <Header />
         </div>

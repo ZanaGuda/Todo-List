@@ -34,11 +34,14 @@ const Form = ({ input, todos, setInput, setTodos, editTodo, setEditTodo }) => {
       <input
         type="text"
         placeholder="Enter a task"
+        className="task-input"
         value={input}
         required
         onChange={onInputChange}
       ></input>
-      <Button type="submit">{editTodo ? "OK" : "Add"}</Button>
+      <Button className="button-add" type="submit">
+        {editTodo ? "OK" : "Add"}
+      </Button>
     </form>
   );
 };
