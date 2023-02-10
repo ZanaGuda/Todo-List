@@ -1,6 +1,6 @@
 import React from "react";
 
-const TodoList = ({ todos, setTodos }) => {
+const TodoList = ({ todos, setTodos, setEditTodo }) => {
   const handleComplete = (todo) => {
     setTodos(
       todos.map((item) => {
@@ -10,6 +10,10 @@ const TodoList = ({ todos, setTodos }) => {
         return item;
       })
     );
+  };
+  const handleEdit = ({ id }) => {
+    const findTodo = todos.find((todo) => todo.id === id);
+    setEditTodo(findTodo);
   };
   const handleDelete = ({ id }) => {
     setTodos(todos.filter((todo) => todo.id !== id));
@@ -31,7 +35,7 @@ const TodoList = ({ todos, setTodos }) => {
               ></i>
             </button>
             <button>
-              <i className="fa fa-edit"></i>
+              <i className="fa fa-edit" onClick={() => handleEdit(todo)}></i>
             </button>
             <button>
               <i className="fa fa-trash" onClick={() => handleDelete(todo)}></i>
